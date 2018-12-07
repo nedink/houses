@@ -94,7 +94,7 @@ function drawGable(box) {
 }
 
 function drawRoof(box) {
-  const height = 4 + Math.floor(Math.random(6));
+  const height = 4 + Math.floor(Math.random() * 4);
   stroke(101, 85, 107);
   fill(101, 85, 107);
   rect(
@@ -103,16 +103,11 @@ function drawRoof(box) {
     (box.w + 2) * scale,
     height * scale
   );
-  for (
-    x = box.x - 1, y = box.y - 1;
-    x < box.x - 1 + box.w + 2, y > box.y - 1 - 4 + Math.floor(Math.random(6));
-    x++, y--
-  ) {}
 }
 
 function drawChimney(box) {
   const x = box.x + Math.floor(Math.random(box.w));
-  const y = box.y - (6 + Math.floor(Math.random(6)));
+  const y = box.y - (6 + Math.floor(Math.random() * 6));
   stroke(101, 85, 107);
   fill(101, 85, 107);
   rect(x * scale, y * scale, scale, 10 * scale);
@@ -137,8 +132,8 @@ function setup() {
 
   box = box2;
 
-  if (Math.random() < 0.3) drawChimney(box);
-  if (Math.random() < 0.1) drawChimney(box);
+  // if (Math.random() < 0.3) drawChimney(box);
+  // if (Math.random() < 0.1) drawChimney(box);
   drawBox(box);
   drawGable(box);
 }
